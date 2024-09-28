@@ -7,14 +7,15 @@ namespace Seminario03
     public partial class MainPage : ContentPage
     {
         int count = 0;
+        public List<Producto> Productos { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        async private void OnCounterClicked(object sender, EventArgs e)
-        {
+       /* async private void OnCounterClicked(object sender, EventArgs e)
+       {
             List<Producto> listaProductos = ClsProducto.GetProductos();
             List<Categoria> listaCategorias = ClsCategoria.GetCategorias();
             List<Producto> listaProductosCategoria = ClsProducto.GetProductosPorCategoria(1);
@@ -32,7 +33,7 @@ namespace Seminario03
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+        }*/
     }
 
 }
