@@ -6,13 +6,22 @@ namespace Seminario03
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        public List<Producto> Productos { get; set; }
+        public List<string> Opciones { get; set; }
+
 
         public MainPage()
         {
             InitializeComponent();
+
+            Productos = ClsProducto.GetProductos();
+            Opciones = ClsCategoria.GetCategorias().Select(c => c.nombre).ToList();
+
+            this.productosCollectionView.ItemsSource = Productos;
+            this.selector.ItemsSource = Opciones;
         }
 
+        /*
         async private void OnCounterClicked(object sender, EventArgs e)
         {
             List<Producto> listaProductos = ClsProducto.GetProductos();
@@ -32,7 +41,7 @@ namespace Seminario03
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+        }*/
     }
 
 }
